@@ -1,0 +1,27 @@
+输入一个整数，将这个整数以字符串的形式逆序输出
+
+程序不考虑负数的情况，若数字含有0，则逆序形式也含有0，如输入为100，则输出为001
+代码 ：
+提示：使用string STL时，写入和输出数字的时候，记得类型转换，写入的时候，转化数字为（char）,输出的时候，转换字符为(int)型
+#include <iostream>
+#include <string.h>
+using namespace std;
+int main()
+{
+    int N;
+    while(cin>>N)
+    {
+        string s1;
+        while(N)
+        {
+            int i = N % 10;
+            s1.push_back((char)i);
+            N /= 10;
+        }
+        for(int i = 0;i < s1.size();i++)
+        {
+            cout << (int)s1.at(i);
+        }
+    }
+    return 0;
+}

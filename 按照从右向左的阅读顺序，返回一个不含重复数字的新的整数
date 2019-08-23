@@ -1,0 +1,34 @@
+按照从右向左的阅读顺序，返回一个不含重复数字的新的整数
+代码：
+#include <iostream>
+#include <vector>
+using namespace std;
+int main()
+{
+    int N;
+    while(cin>>N)
+    {
+        vector<int> v;
+        while(N)
+        {
+            int i = N%10;
+            v.push_back(i);
+            N /= 10;
+        }
+        for(int i = 0;i < v.size() ;i++)
+        {
+        	for(int j = i + 1;j < v.size();j++)
+        	{
+        		if(v[j] == v[i])
+        		v[j] = -1;
+			}
+		}
+		for(int i = 0;i < v.size() ;i++)
+		{
+			if(v[i] > 0)
+			cout << v[i];
+		}
+		cout << endl;
+    }
+    return 0;
+}
